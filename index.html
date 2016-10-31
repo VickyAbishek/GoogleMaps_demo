@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="script.js"></script>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map{
+        width: 1000px;
+        height: 600px;
+        margin:auto;
+      }
+      .input{
+        width: 100%;
+        margin:20px 0 20px 0;
+        text-align: center;
+        display: inline-block;
+      }
+      .input input{
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="input">
+      <span>Latitude</span>
+      <input type="number" id="longitude" min="-90" max="90" placeholder="-90 to 90" step="0.01" >
+      <span>Longitude</span>
+      <input type="number" id="lang" min="-180" max="180" placeholder="-180 to 180" step="0.01">
+      <span>Message</span>
+      <input type="text" id="placeMarkerText">
+      <input type="button" id="markerMessage" onclick="placeMarker()" value="Place Marker">
+    </div>
+    <div class="cointainer">
+    <div id="map"></div>
+    </div>
+    <script>
+            function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+      }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAh3dW4nusjlujt6y2QY3gEwWR1_vYnAOY&callback=initMap"
+    async defer></script>
+  </body>
+</html>
